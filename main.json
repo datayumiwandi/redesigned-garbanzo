@@ -1,96 +1,98 @@
-[
-    {
-        "tag": "ID - Lightnode Limited",
-        "type": "trojan",
-        "server": "bayar-staging.skillacademy.com",
-        "server_port": 443,
-        "password": "4337a919-b79e-4b92-8661-e76ac841aa89",
-        "tls": {
-            "enabled": true,
-            "insecure": true,
-            "server_name": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
-        },
-        "transport": {
-            "type": "ws",
-            "path": "/156.244.1.250=8443",
-            "headers": {
-                "Host": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
+{
+    "outbounds": [
+        {
+            "tag": "ID - Lightnode Limited",
+            "type": "trojan",
+            "server": "bayar-staging.skillacademy.com",
+            "server_port": 443,
+            "password": "4337a919-b79e-4b92-8661-e76ac841aa89",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/156.244.1.250=8443",
+                "headers": {
+                    "Host": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
+                }
+            },
+            "multiplex": {
+                "enabled": false
             }
         },
-        "multiplex": {
-            "enabled": false
-        }
-    },
-    {
-        "tag": "ID - Hostinger International",
-        "type": "vless",
-        "server": "support.zoom.us",
-        "server_port": 443,
-        "uuid": "e3fc3ead-c6fe-4eba-8c6f-a15da77b35b7",
-        "flow": "",
-        "packet_encoding": "xudp",
-        "tls": {
-            "enabled": true,
-            "insecure": true,
-            "server_name": "rurimashiro.biz.id"
-        },
-        "transport": {
-            "type": "ws",
-            "path": "/31.97.50.106=443",
-            "headers": {
-                "Host": "rurimashiro.biz.id"
+        {
+            "tag": "ID - Hostinger International",
+            "type": "vless",
+            "server": "support.zoom.us",
+            "server_port": 443,
+            "uuid": "e3fc3ead-c6fe-4eba-8c6f-a15da77b35b7",
+            "flow": "",
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "rurimashiro.biz.id"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/31.97.50.106=443",
+                "headers": {
+                    "Host": "rurimashiro.biz.id"
+                }
+            },
+            "multiplex": {
+                "enabled": false
             }
         },
-        "multiplex": {
-            "enabled": false
-        }
-    },
-    {
-        "tag": "ID - Amazoncom",
-        "type": "vless",
-        "server": "account-staging.ruangguru.com",
-        "server_port": 443,
-        "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
-        "flow": null,
-        "packet_encoding": "xudp",
-        "tls": {
-            "enabled": true,
-            "insecure": true,
-            "server_name": "dash-doh.manastesia.workers.dev"
-        },
-        "transport": {
-            "type": "ws",
-            "path": "/43.218.77.16=443",
-            "headers": {
-                "Host": "dash-doh.manastesia.workers.dev"
+        {
+            "tag": "ID - Amazoncom",
+            "type": "vless",
+            "server": "account-staging.ruangguru.com",
+            "server_port": 443,
+            "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
+            "flow": null,
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "dash-doh.manastesia.workers.dev"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/43.218.77.16=443",
+                "headers": {
+                    "Host": "dash-doh.manastesia.workers.dev"
+                }
+            },
+            "multiplex": {
+                "enabled": false
             }
         },
-        "multiplex": {
-            "enabled": false
-        }
-    },
-    {
-        "tag": "SG - Microsoft Corporation",
-        "type": "vless",
-        "server": "account-staging.ruangguru.com",
-        "server_port": 443,
-        "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
-        "flow": null,
-        "packet_encoding": "xudp",
-        "tls": {
-            "enabled": true,
-            "insecure": true,
-            "server_name": "rurimashirostory.dpdns.org"
-        },
-        "transport": {
-            "type": "ws",
-            "path": "/104.43.91.69=443",
-            "headers": {
-                "Host": "rurimashirostory.dpdns.org"
+        {
+            "tag": "SG - Microsoft Corporation",
+            "type": "vless",
+            "server": "account-staging.ruangguru.com",
+            "server_port": 443,
+            "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
+            "flow": null,
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "rurimashirostory.dpdns.org"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/104.43.91.69=443",
+                "headers": {
+                    "Host": "rurimashirostory.dpdns.org"
+                }
+            },
+            "multiplex": {
+                "enabled": false
             }
-        },
-        "multiplex": {
-            "enabled": false
         }
-    }
-]
+    ]
+}
