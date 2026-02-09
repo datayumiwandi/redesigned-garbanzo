@@ -52,7 +52,7 @@
             "server": "account-staging.ruangguru.com",
             "server_port": 443,
             "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
-            "flow": null,
+            "flow": "",
             "packet_encoding": "xudp",
             "tls": {
                 "enabled": true,
@@ -76,7 +76,7 @@
             "server": "account-staging.ruangguru.com",
             "server_port": 443,
             "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
-            "flow": null,
+            "flow": "",
             "packet_encoding": "xudp",
             "tls": {
                 "enabled": true,
