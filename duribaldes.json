@@ -111,7 +111,7 @@
       "outbounds": [
         "🚀 Latency",
         "⚙️ UDP",
-        "🛌 Manual"
+        "⚖️ LoadBalance"
       ],
       "default": "🚀 Latency"
     },
@@ -122,10 +122,17 @@
         "Labs Remote"
       ],
       "outbounds": [
-        "SG - Linode LLC"
+        "Premium Ruri 12-03-2026",
+        "SG - Linode LLC",
+        "ID - Lightnode Limited",
+        "ID - Hostinger International",
+        "ID - Amazoncom",
+        "SG - Microsoft Corporation",
+        "Rotasi ID",
+        "MY Alibaba"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m0s",
+      "interval": "1m0s",
       "tolerance": 50,
       "idle_timeout": "5m0s",
       "fallback": {
@@ -134,20 +141,37 @@
       }
     },
     {
-      "type": "selector",
-      "tag": "🛌 Manual",
+      "type": "loadbalance",
+      "tag": "⚖️ LoadBalance",
+      "strategy": "sticky-sessions",
+      "outbounds": [
+        "Premium Ruri 12-03-2026",
+        "SG - Linode LLC",
+        "ID - Lightnode Limited",
+        "ID - Hostinger International",
+        "ID - Amazoncom",
+        "SG - Microsoft Corporation",
+        "Rotasi ID",
+        "MY Alibaba"
+      ],
       "providers": [
         "Labs Remote"
-      ]
+      ],
+      "url": "https://cp.cloudflare.com/",
+      "interval": "3m",
+      "idle_timeout": "30m",
+      "ttl": "30m",
+      "use_all_providers": false,
+      "interrupt_exist_connections": false
     },
     {
       "type": "urltest",
       "tag": "⚙️ UDP",
       "outbounds": [
-        "Prem Edu S. Herza Ruri"
+        "Premium Ruri 12-03-2026"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m0s"
+      "interval": "2m0s"
     },
     {
       "tag": "SG - Linode LLC",
@@ -160,7 +184,11 @@
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "rurimashirostory.dpdns.org"
+        "server_name": "rurimashirostory.dpdns.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
       },
       "transport": {
         "type": "ws",
@@ -174,15 +202,17 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "Prem Edu S. Herza Ruri",
-      "server": "bayar-staging.skillacademy.com",
+      "tag": "Premium Ruri 12-03-2026",
+      "type": "vless",
+      "server": "tender.unud.ac.id",
       "server_port": 443,
-      "password": "a147d6d7-fd56-449d-8cb8-088856e8e8b9",
+      "uuid": "1fca6192-46dd-414d-b867-eae2453be90e",
+      "flow": null,
+      "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "server_name": "bayar-staging.skillacademy.com.id3.kadalsfamily.com",
         "insecure": true,
+        "server_name": "id3.kadalsfamily.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -190,9 +220,155 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/trojan-ws",
+        "path": "/vless",
         "headers": {
-          "Host": "bayar-staging.skillacademy.com.id3.kadalsfamily.com"
+          "Host": "id3.kadalsfamily.com"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    },
+    {
+      "tag": "ID - Lightnode Limited",
+      "type": "trojan",
+      "server": "bayar-staging.skillacademy.com",
+      "server_port": 443,
+      "password": "4337a919-b79e-4b92-8661-e76ac841aa89",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/156.244.1.250=8443",
+        "headers": {
+          "Host": "bayar-staging.skillacademy.com.apolo.mayumi.biz.id"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    },
+    {
+      "tag": "ID - Hostinger International",
+      "type": "vless",
+      "server": "tender.unud.ac.id",
+      "server_port": 443,
+      "uuid": "e3fc3ead-c6fe-4eba-8c6f-a15da77b35b7",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "rurimashiro.biz.id"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/31.97.50.106=443",
+        "headers": {
+          "Host": "rurimashiro.biz.id"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    },
+    {
+      "tag": "ID - Amazoncom",
+      "type": "vless",
+      "server": "lms.uin-antasari.ac.id",
+      "server_port": 443,
+      "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
+      "flow": null,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "dash-doh.manastesia.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/43.218.77.16=443",
+        "headers": {
+          "Host": "dash-doh.manastesia.workers.dev"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    },
+    {
+      "tag": "SG - Microsoft Corporation",
+      "type": "vless",
+      "server": "lms.uin-antasari.ac.id",
+      "server_port": 443,
+      "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
+      "flow": null,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "rurimashirostory.dpdns.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/104.43.91.69=443",
+        "headers": {
+          "Host": "rurimashirostory.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "Rotasi ID",
+      "server": "lms.uin-antasari.ac.id",
+      "server_port": 443,
+      "uuid": "7209ff68-d4e8-4f8b-b7e5-c1e241316870",
+      "alter_id": 0,
+      "security": "zero",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "maquia.jayecyumi.workers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ID",
+        "headers": {
+          "Host": "maquia.jayecyumi.workers.dev"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "MY Alibaba",
+      "server": "lms.uin-antasari.ac.id",
+      "server_port": 443,
+      "password": "045f5d87-3dd2-4b38-9d6f-c64d8dff4d12",
+      "tls": {
+        "enabled": true,
+        "server_name": "megumin.kazanami.workers.dev",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/47.250.132.147-443",
+        "headers": {
+          "Host": "megumin.kazanami.workers.dev"
         }
       }
     }
@@ -207,7 +383,7 @@
       "health_check": {
         "enabled": true,
         "url": "https://www.gstatic.com/generate_204",
-        "interval": "3m",
+        "interval": "1m0s",
         "timeout": "5s"
       }
     }
