@@ -1,0 +1,249 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "info",
+    "output": "Nekobox.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "cloudflare-dns",
+        "detour": "🚀 Latency",
+        "domain_resolver": {
+          "server": "hosts-dns",
+          "strategy": "prefer_ipv4"
+        },
+        "server": "1.1.1.1",
+        "server_port": 443,
+        "path": "/dns-query"
+      },
+      {
+        "type": "https",
+        "tag": "google-dns",
+        "detour": "🚀 Latency",
+        "domain_resolver": {
+          "server": "hosts-dns",
+          "strategy": "prefer_ipv4"
+        },
+        "server": "dns.google",
+        "server_port": 443
+      },
+      {
+        "type": "udp",
+        "tag": "xl-local-dns",
+        "domain_resolver": {
+          "server": "hosts-dns",
+          "strategy": "prefer_ipv4"
+        },
+        "server": "112.215.203.246",
+        "server_port": 53
+      },
+      {
+        "type": "hosts",
+        "tag": "hosts-dns",
+        "predefined": {
+          "dns.google": [
+            "8.8.8.8",
+            "8.8.4.4",
+            "2001:4860:4860::8844",
+            "2001:4860:4860::8888"
+          ],
+          "1.1.1.1": [
+            "104.16.248.249",
+            "104.16.249.249",
+            "2606:4700::6810:f8f9",
+            "2606:4700::6810:f9f9"
+          ],
+          "112.215.203.246": [
+            "112.215.203.247",
+            "2400:9800:1b::246",
+            "2400:9800:1b::247",
+            "112.215.198.248",
+            "112.215.198.254"
+          ]
+        }
+      },
+      {
+        "type": "fakeip",
+        "tag": "remote",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      }
+    ],
+    "rules": [
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "remote"
+      }
+    ],
+    "final": "cloudflare-dns",
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tunnelm0n",
+      "mtu": 1500,
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "stack": "mixed",
+      "sniff": true,
+      "endpoint_independent_nat": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "🌐 Internet",
+      "outbounds": [
+        "🚀 Latency",
+        "⚙️ UDP",
+        "🛌 Manual"
+      ],
+      "default": "🚀 Latency"
+    },
+    {
+      "type": "urltest",
+      "tag": "🚀 Latency",
+      "providers": [
+        "Labs Remote"
+      ],
+      "outbounds": [
+        "SG - Linode LLC"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m0s",
+      "tolerance": 50,
+      "idle_timeout": "5m0s",
+      "fallback": {
+        "enabled": true,
+        "max_delay": "300ms"
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "🛌 Manual",
+      "providers": [
+        "Labs Remote"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "⚙️ UDP",
+      "outbounds": [
+        "Prem Edu S. Herza Ruri"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "3m0s"
+    },
+    {
+      "tag": "SG - Linode LLC",
+      "type": "vless",
+      "server": "bayar-staging.skillacademy.com",
+      "server_port": 443,
+      "uuid": "1c105f06-9646-4482-9ebf-8267238a9d48",
+      "flow": null,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "rurimashirostory.dpdns.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/139.162.4.242=8443",
+        "headers": {
+          "Host": "rurimashirostory.dpdns.org"
+        }
+      },
+      "multiplex": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "Prem Edu S. Herza Ruri",
+      "server": "bayar-staging.skillacademy.com",
+      "server_port": 443,
+      "password": "a147d6d7-fd56-449d-8cb8-088856e8e8b9",
+      "tls": {
+        "enabled": true,
+        "server_name": "bayar-staging.skillacademy.com.id3.kadalsfamily.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/trojan-ws",
+        "headers": {
+          "Host": "bayar-staging.skillacademy.com.id3.kadalsfamily.com"
+        }
+      }
+    }
+  ],
+  "providers": [
+    {
+      "type": "remote",
+      "tag": "Labs Remote",
+      "url": "https://raw.githubusercontent.com/datayumiwandi/redesigned-garbanzo/refs/heads/main/main.json",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36",
+      "update_interval": "24h",
+      "health_check": {
+        "enabled": true,
+        "url": "https://www.gstatic.com/generate_204",
+        "interval": "3m",
+        "timeout": "5s"
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "network": "udp",
+        "port": [
+          443,
+          53,
+          123,
+          80,
+          8080
+        ],
+        "outbound": "⚙️ UDP"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      }
+    ],
+    "final": "🌐 Internet",
+    "auto_detect_interface": true,
+    "default_domain_resolver": "xl-local-dns"
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "yacd",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "🚀 Latency",
+      "default_mode": "rule"
+    }
+  }
+}
