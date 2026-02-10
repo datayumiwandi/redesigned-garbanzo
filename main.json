@@ -25,7 +25,7 @@
         {
             "tag": "ID - Hostinger International",
             "type": "vless",
-            "server": "support.zoom.us",
+            "server": "tender.unud.ac.id",
             "server_port": 443,
             "uuid": "e3fc3ead-c6fe-4eba-8c6f-a15da77b35b7",
             "flow": "",
@@ -49,10 +49,10 @@
         {
             "tag": "ID - Amazoncom",
             "type": "vless",
-            "server": "account-staging.ruangguru.com",
+            "server": "lms.uin-antasari.ac.id",
             "server_port": 443,
             "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
-            "flow": "",
+            "flow": null,
             "packet_encoding": "xudp",
             "tls": {
                 "enabled": true,
@@ -73,10 +73,10 @@
         {
             "tag": "SG - Microsoft Corporation",
             "type": "vless",
-            "server": "account-staging.ruangguru.com",
+            "server": "lms.uin-antasari.ac.id",
             "server_port": 443,
             "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
-            "flow": "",
+            "flow": null,
             "packet_encoding": "xudp",
             "tls": {
                 "enabled": true,
@@ -89,9 +89,53 @@
                 "headers": {
                     "Host": "rurimashirostory.dpdns.org"
                 }
+            }
+        },
+        {
+            "type": "vmess",
+            "tag": "Rotasi ID",
+            "server": "lms.uin-antasari.ac.id",
+            "server_port": 443,
+            "uuid": "7209ff68-d4e8-4f8b-b7e5-c1e241316870",
+            "alter_id": 0,
+            "security": "zero",
+            "tls": {
+                "enabled": true,
+                "insecure": false,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
             },
-            "multiplex": {
-                "enabled": false
+            "transport": {
+                "type": "ws",
+                "path": "/ID",
+                "headers": {
+                    "Host": "maquia.jayecyumi.workers.dev"
+                }
+            }
+        },
+        {
+            "type": "trojan",
+            "tag": "MY Alibaba",
+            "server": "lms.uin-antasari.ac.id",
+            "server_port": 443,
+            "password": "045f5d87-3dd2-4b38-9d6f-c64d8dff4d12",
+            "tls": {
+                "enabled": true,
+                "server_name": "megumin.kazanami.workers.dev",
+                "insecure": true,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "firefox"
+                }
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/47.250.132.147-443",
+                "headers": {
+                    "Host": "megumin.kazanami.workers.dev"
+                }
             }
         }
     ]
