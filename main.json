@@ -49,7 +49,7 @@
         {
             "tag": "ID - Amazoncom",
             "type": "vless",
-            "server": "lms.uin-antasari.ac.id",
+            "server": "bayar-staging.skillacademy.com",
             "server_port": 443,
             "uuid": "cda4e42e-4258-4872-8691-87b7ed953e8a",
             "flow": null,
@@ -73,7 +73,7 @@
         {
             "tag": "SG - Microsoft Corporation",
             "type": "vless",
-            "server": "lms.uin-antasari.ac.id",
+            "server": "bayar-staging.skillacademy.com",
             "server_port": 443,
             "uuid": "71dd0b78-8313-4a51-b3f7-6b9815ecc19f",
             "flow": null,
@@ -94,7 +94,7 @@
         {
             "type": "vmess",
             "tag": "Rotasi ID",
-            "server": "lms.uin-antasari.ac.id",
+            "server": "bayar-staging.skillacademy.com",
             "server_port": 443,
             "uuid": "7209ff68-d4e8-4f8b-b7e5-c1e241316870",
             "alter_id": 0,
@@ -118,7 +118,7 @@
         {
             "type": "trojan",
             "tag": "MY Alibaba",
-            "server": "lms.uin-antasari.ac.id",
+            "server": "bayar-staging.skillacademy.com",
             "server_port": 443,
             "password": "045f5d87-3dd2-4b38-9d6f-c64d8dff4d12",
             "tls": {
