@@ -142,7 +142,7 @@
         {
       "tag": "MY - Kaopu Cloud HK Limited",
       "type": "vless",
-      "server": "198.18.0.14",
+      "server": "bayar-staging.skillacademy.com",
       "server_port": 443,
       "uuid": "9e1059e7-cc63-40e1-9d49-355e600329bf",
       "flow": null,
