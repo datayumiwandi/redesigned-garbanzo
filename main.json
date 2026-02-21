@@ -25,7 +25,7 @@
         {
             "tag": "ID - Hostinger International",
             "type": "vless",
-            "server": "tender.unud.ac.id",
+            "server": "bayar-staging.skillacademy.com",
             "server_port": 443,
             "uuid": "e3fc3ead-c6fe-4eba-8c6f-a15da77b35b7",
             "flow": "",
@@ -101,6 +101,7 @@
             "security": "zero",
             "tls": {
                 "enabled": true,
+                "server_name": "maquia.jayecyumi.workers.dev",
                 "insecure": false,
                 "utls": {
                     "enabled": true,
