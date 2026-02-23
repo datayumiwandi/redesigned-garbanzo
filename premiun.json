@@ -1,0 +1,100 @@
+{
+    "outbounds": [
+        {
+            "type": "vless",
+            "tag": "TuhinDroidZone",
+            "server": "bayar-staging.skillacademy.com",
+            "server_port": 443,
+            "uuid": "TuhinDroidZone",
+            "tls": {
+                "enabled": true,
+                "server_name": "idx.tdz-server.store",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "android"
+                },
+                "insecure": true
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/@TuhinBroh",
+                "headers": {
+                    "Host": "idx.tdz-server.store"
+                }
+            },
+            "packet_encoding": "xudp"
+        },
+        {
+            "tag": "Premium-Mulung",
+            "type": "vless",
+            "server": "bayar-staging.skillacademy.com",
+            "server_port": 443,
+            "uuid": "6ba6464c-f9b7-4621-9016-58ca2f9e6f7a",
+            "flow": null,
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "junck3.unknown.cfd"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/unknown",
+                "headers": {
+                    "Host": "junck3.unknown.cfd"
+                }
+            },
+            "multiplex": {
+                "enabled": false
+            }
+        },
+        {
+            "tag": "MaTriX-lifeTime",
+            "type": "vless",
+            "server": "bayar-staging.skillacademy.com",
+            "server_port": 443,
+            "uuid": "4555f571-5ce2-4ff3-b9f4-655e8c93c4d8",
+            "flow": null,
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "sg7.ihsantbn.biz.id"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/vless",
+                "headers": {
+                    "Host": "sg7.ihsantbn.biz.id"
+                }
+            },
+            "multiplex": {
+                "enabled": false
+            }
+        },
+        {
+            "tag": "VLESS-ACHILLES",
+            "type": "vless",
+            "server": "bayar-staging.skillacademy.com",
+            "server_port": 443,
+            "uuid": "9408fbd7-b1b3-4c56-a00a-194fd3a1eb46",
+            "flow": null,
+            "packet_encoding": "xudp",
+            "tls": {
+                "enabled": true,
+                "insecure": true,
+                "server_name": "r3xxe.dpdns.org"
+            },
+            "transport": {
+                "type": "ws",
+                "path": "/sg-gllc",
+                "headers": {
+                    "Host": "r3xxe.dpdns.org"
+                }
+            },
+            "multiplex": {
+                "enabled": false
+            }
+        }
+    ]
+}
